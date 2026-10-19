@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L’amour de JÉSUS — Parcours de sanctification</title>
+<style>
+:root{--bg:#FAF7F2;--card:#FFFDF9;--sand:#F1E8DA;--tx:#2C1810;--sub:#6B5246;--br:#6B4226;--vi:#5C234B;--vil:#F4EBF1;--bd:#E4D8C8;--ok:#E6F4E8;--okt:#1B5E20;--ko:#FDEBEC;--kot:#A61B1B;--sh:0 10px 30px rgba(60,35,20,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B1310;--card:#271C17;--sand:#33251E;--tx:#F5EBE0;--sub:#C9B6A6;--br:#D9A877;--vi:#D9A3C8;--vil:#35212F;--bd:#44332A;--ok:#1E3322;--okt:#9BDCA3;--ko:#3A1F21;--kot:#F29A9A;--sh:0 10px 30px rgba(0,0,0,.4)}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--tx);font:16px/1.65 Georgia,"Times New Roman",serif;min-height:100vh}
+h1,h2,h3,.ui{font-family:"Segoe UI",system-ui,-apple-system,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font:700 1.1rem "Segoe UI",system-ui,sans-serif;color:var(--vi);cursor:pointer;background:none;border:0}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.links button{font:600 .9rem "Segoe UI",system-ui,sans-serif;background:none;border:0;color:var(--sub);padding:8px 14px;border-radius:999px;cursor:pointer}
+.links button:hover,.links button.on{background:var(--sand);color:var(--br)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--vi);outline-offset:2px}
+.hero{margin:28px 0;padding:56px 32px;border-radius:32px;text-align:center;background:radial-gradient(circle at 50% 0,var(--vil),var(--sand));border:1px solid var(--bd);box-shadow:var(--sh)}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);color:var(--br);line-height:1.15;margin:10px 0 14px}
+.hero p{max-width:640px;margin:0 auto 24px;color:var(--sub);font-size:1.1rem}
+.pill{display:inline-block;padding:6px 16px;border-radius:999px;background:var(--card);border:1px solid var(--bd);color:var(--vi);font:600 .85rem "Segoe UI",system-ui,sans-serif}
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;border:0;background:var(--br);color:#fff;font:700 1rem "Segoe UI",system-ui,sans-serif;cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:var(--sh)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.alt{background:transparent;color:var(--br);border:1.5px solid var(--br)}
+.btn.vi{background:var(--vi);color:#fff}
+@media(prefers-color-scheme:dark){.btn:not(.alt){color:#1B1310}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin:24px 0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:28px;padding:28px;box-shadow:var(--sh)}
+.card h3{color:var(--vi);margin-bottom:6px}.card p{color:var(--sub)}
+.num{width:48px;height:48px;border-radius:50%;background:var(--vil);color:var(--vi);display:grid;place-items:center;font:700 1.1rem "Segoe UI",sans-serif;margin-bottom:12px}
+h2.sec{font-size:1.7rem;color:var(--br);margin:36px 0 6px;text-align:center}
+.lead{text-align:center;color:var(--sub);margin-bottom:8px}
+.bar{height:10px;border-radius:99px;background:var(--bd);overflow:hidden;margin:12px 0}
+.bar i{display:block;height:100%;background:var(--vi);border-radius:99px;transition:width .4s}
+.opts{display:grid;gap:12px;margin:22px 0}
+.opt{text-align:left;padding:16px 18px;border-radius:18px;border:1.5px solid var(--bd);background:var(--card);color:var(--tx);font:1rem/1.5 Georgia,serif;cursor:pointer;transition:.2s}
+.opt:hover:not(:disabled){border-color:var(--br);background:var(--sand)}
+.opt.sel{border-color:var(--vi);background:var(--vil);font-weight:700}
+.opt.ok{background:var(--ok);border-color:var(--okt);color:var(--okt);font-weight:700}
+.opt.ko{background:var(--ko);border-color:var(--kot);color:var(--kot)}
+.exp{background:var(--sand);border-left:5px solid var(--vi);border-radius:18px;padding:16px 18px;margin:8px 0 18px}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.big{font:800 3.4rem "Segoe UI",sans-serif;color:var(--br);line-height:1.1;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.stat{background:var(--sand);border-radius:20px;padding:14px;text-align:center}
+.stat b{display:block;font:800 1.5rem "Segoe UI",sans-serif;color:var(--vi)}
+.rev{border:1px solid var(--bd);border-radius:20px;padding:16px;margin:12px 0;background:var(--card)}
+.rev.ko{border-color:var(--kot)}.rev.ok{border-color:var(--okt)}
+.note{font-size:.88rem;color:var(--sub);text-align:center;margin-top:18px}
+.fade{animation:f .35s ease}@keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.inp{display:block;width:100%;margin:6px 0 14px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--bd);background:var(--bg);color:var(--tx);font:1rem Georgia,serif}.chk{display:flex;gap:10px;margin:10px 0;font-size:.92rem;color:var(--sub)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+footer{margin:48px 0 28px;text-align:center;color:var(--sub);font-size:.9rem}
+@media(max-width:560px){.hero{padding:40px 20px;border-radius:26px}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><button class="logo" onclick="go('home')">✝️ L’amour de JÉSUS</button>
+<div class="links" id="links"></div></div></nav>
+<main class="wrap" id="app"></main>
+<footer class="wrap">Louis Segond 1910 · Outil d’apprentissage et de méditation<br>
+<a href="https://whatsapp.com/channel/0029VateTWs1t90Yl4zxTt1I" target="_blank" rel="noopener noreferrer" style="color:var(--vi);font-weight:700">L’amour de JÉSUS💖✝️ sur WhatsApp</a></footer>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const CHANNEL_URL="https://whatsapp.com/channel/0029VateTWs1t90Yl4zxTt1I";
+const CHANNEL_NAME="L’amour de JÉSUS💖✝️";
+const TF=["Vrai","Faux"];
+// [question, options, index bonne réponse, référence, explication]
+const LV=[
+{n:"I",t:"Les fondements",d:"Comprendre les bases bibliques de la sanctification.",q:[
+["Selon 1 Thessaloniciens 4:3, quelle est la volonté de Dieu concernant les croyants ?",["Qu’ils deviennent célèbres.","Qu’ils soient sanctifiés.","Qu’ils ne rencontrent jamais de difficultés.","Qu’ils connaissent tous les événements futurs."],1,"1 Thessaloniciens 4:3","La sanctification fait partie de la volonté de Dieu pour les croyants."],
+["Selon Hébreux 12:14, que doivent rechercher les croyants ?",["La richesse et la reconnaissance.","La paix avec tous et la sanctification.","La supériorité sur les autres.","L’absence de toute opposition."],1,"Hébreux 12:14","La vie chrétienne concerne à la fois notre relation avec Dieu et avec les autres."],
+["Selon Romains 12:2, comment le croyant peut-il être transformé ?",["En imitant la société.","En changeant son apparence.","Par le renouvellement de l’intelligence.","En évitant toute réflexion."],2,"Romains 12:2","La transformation touche d’abord la manière de penser et de discerner la volonté de Dieu."],
+["Dans Jean 17:17, par quel moyen Jésus demande-t-il de sanctifier ses disciples ?",["Par la richesse.","Par la vérité : la Parole de Dieu.","Par la réputation.","Par l’absence de difficulté."],1,"Jean 17:17","La Parole de Dieu joue un rôle central dans la sanctification."],
+["Selon 1 Jean 1:9, que promet Dieu quand nous confessons nos péchés ?",["Qu’il n’y aura jamais de conséquences.","Qu’il nous pardonne et nous purifie de toute iniquité.","Que nous n’aurons plus jamais besoin de confesser.","Que nous serons immédiatement parfaits."],1,"1 Jean 1:9","Dieu est fidèle et juste pour pardonner les péchés confessés."],
+["Selon 1 Corinthiens 6:19-20, pourquoi le corps du croyant doit-il honorer Dieu ?",["Il est le temple du Saint-Esprit et le croyant a été racheté à un grand prix.","Le corps n’a aucune importance spirituelle.","Seul l’esprit compte devant Dieu.","Le corps garantit à lui seul le salut."],0,"1 Corinthiens 6:19-20","Le corps appartient à Dieu et doit être utilisé pour l’honorer."],
+["Selon Jacques 1:22, que doivent faire ceux qui entendent la Parole ?",["La mettre en pratique, et pas seulement l’écouter.","La mémoriser sans l’appliquer.","La transmettre uniquement aux autres.","Attendre d’être parfaits pour obéir."],0,"Jacques 1:22","L’écoute de la Parole doit produire une réponse concrète."],
+["Selon Romains 6:1-2, la grâce permet-elle de vivre volontairement dans le péché ?",["Oui, le pardon rend le péché sans importance.","Oui, si personne ne le découvre.","Oui, à condition de prier ensuite.","Non, car les croyants sont morts au péché."],3,"Romains 6:1-2","La grâce n’est jamais une permission de pécher : la vie nouvelle rompt avec la domination du péché."],
+["Selon Éphésiens 2:8-10, les bonnes œuvres sont le prix à payer pour obtenir le salut.",TF,1,"Éphésiens 2:8-10","Le salut est un don reçu par la grâce, par la foi ; les bonnes œuvres en sont le fruit."],
+["Selon 1 Corinthiens 10:13, que fait Dieu face à la tentation ?",["Il garantit qu’on ne sera jamais tenté.","Il est fidèle et donne le moyen d’en sortir pour pouvoir la supporter.","Il oblige à céder.","Il supprime toute responsabilité."],1,"1 Corinthiens 10:13","Dieu pourvoit une issue ; le croyant est appelé à la saisir."],
+["Selon Romains 12:1, comment les croyants présentent-ils leur corps à Dieu ?",["Comme un sacrifice vivant, saint et agréable à Dieu.","Comme un instrument réservé aux activités religieuses.","Comme une réalité sans importance spirituelle.","Comme un moyen de mériter le salut."],0,"Romains 12:1","Toute la vie quotidienne est appelée à être consacrée à Dieu."],
+["Selon Galates 5:22-23, lequel de ces éléments est un fruit de l’Esprit ?",["La jalousie.","La vengeance.","La méchanceté.","La douceur."],3,"Galates 5:22-23","La douceur fait partie du fruit de l’Esprit."],
+["Selon Éphésiens 4:31-32, qu’est-ce qui doit remplacer l’amertume et la méchanceté ?",["La vengeance.","L’indifférence.","La bonté, la compassion et le pardon.","Le rappel constant des fautes d’autrui."],2,"Éphésiens 4:31-32","Nous pardonnons comme Dieu nous a pardonné en Christ."],
+["Selon Philippiens 2:12-13, comment sont présentées l’action de Dieu et la responsabilité du croyant ?",["Le croyant agit sans Dieu.","Dieu produit le vouloir et le faire ; le croyant met en œuvre son salut.","Le croyant n’a aucune responsabilité.","Les œuvres achètent le salut."],1,"Philippiens 2:12-13","Une vie transformée par Dieu, et non le prix du salut."],
+["Selon 2 Timothée 2:21, que devient celui qui se purifie de ce qui est déshonorant ?",["Quelqu’un qui n’a plus besoin de Dieu.","Quelqu’un de supérieur aux autres.","Un vase d’honneur, sanctifié, utile au maître, préparé pour toute bonne œuvre.","Quelqu’un qui ne sert plus personne."],2,"2 Timothée 2:20-21","La sanctification prépare à être utile à Dieu."],
+["Selon Psaume 119:9, comment un jeune homme rend-il sa conduite pure ?",["En évitant toute relation.","En réglant sa conduite sur la Parole de Dieu.","En se fiant à ses émotions.","En se comparant aux autres."],1,"Psaume 119:9","La Parole oriente la conduite et préserve la vie morale."],
+["Selon 1 Pierre 1:15-16, sur quel modèle rechercher la sainteté ?",["Les personnalités populaires.","Les traditions de la société.","La sainteté de Dieu qui nous a appelés.","Ceux qui ne se trompent jamais."],2,"1 Pierre 1:15-16","Dieu est le modèle de sainteté."],
+["Selon Jacques 1:19-20, quelle attitude adopter en cas de désaccord ?",["Être prompt à écouter, lent à parler, lent à se mettre en colère.","Répondre vite pour gagner.","Élever la voix.","Refuser d’écouter ceux qui divergent."],0,"Jacques 1:19-20","La colère de l’homme n’accomplit pas la justice de Dieu."],
+["Selon 2 Corinthiens 7:1, quelle démarche poursuivre ?",["Éviter seulement les fautes visibles.","Chercher l’approbation des autres.","Penser la sanctification inutile après la conversion.","Se purifier de toute souillure et achever la sanctification dans la crainte de Dieu."],3,"2 Corinthiens 7:1","La sanctification concerne la vie entière."],
+["Tes amis te poussent à un comportement contraire aux principes bibliques. Quelle décision correspond à Romains 12:2 ?",["Les suivre pour ne pas être rejeté.","Accepter pour faire bonne impression.","Refuser de te conformer et chercher la volonté de Dieu.","Faire semblant d’accepter en jugeant les autres."],2,"Romains 12:2","Le renouvellement de l’intelligence aide à résister à la pression."],
+["Selon Galates 5:16, marcher selon l’Esprit aide à ne pas accomplir les désirs de la chair.",TF,0,"Galates 5:16","Dépendre de l’Esprit oriente la conduite."],
+["Selon Proverbes 25:28, à quoi ressemble celui qui ne maîtrise pas son esprit ?",["À une ville forcée et sans murailles.","À une maison toujours en paix.","À un arbre aux bons fruits.","À un soldat sans combat."],0,"Proverbes 25:28","La maîtrise de soi protège la conduite."],
+["Des personnes se moquent d’un absent. Quelle réaction correspond à Éphésiens 4:29 ?",["Ajouter une histoire embarrassante.","Se taire puis répéter ailleurs.","Orienter vers des paroles utiles qui édifient.","Publier la conversation."],2,"Éphésiens 4:29","Nos paroles doivent édifier, même en privé."],
+["Une fréquentation t’entraîne vers le mal. Quel conseil correspond à 2 Timothée 2:22 ?",["Continuer à t’exposer pour prouver ta force.","Garder l’habitude secrète.","Fuir les passions et poursuivre la justice, la foi, l’amour et la paix.","Accuser les autres."],2,"2 Timothée 2:22","Fuir le mal et poursuivre activement le bien."],
+["Selon 1 Jean 1:6-7, on peut être en communion avec Dieu tout en marchant volontairement dans les ténèbres.",TF,1,"1 Jean 1:6-7","La communion se vit en marchant dans la lumière."],
+["Selon Colossiens 3:17, quel principe guide nos actes ordinaires ?",["Agir seulement pour une récompense.","Faire le minimum.","Impressionner les autres.","Tout faire au nom du Seigneur Jésus, en rendant grâces."],3,"Colossiens 3:17","Toute la vie quotidienne honore le Seigneur."],
+["Selon Jean 13:34-35, à quoi reconnaîtra-t-on les disciples de Jésus ?",["À leur richesse.","À leur popularité.","À l’amour qu’ils ont les uns pour les autres.","À l’absence de désaccord."],2,"Jean 13:34-35","L’amour mutuel est la marque des disciples."],
+["Selon Galates 6:9, si les résultats tardent, il vaut mieux abandonner le bien.",TF,1,"Galates 6:9","Paul encourage à ne pas se lasser : la moisson viendra."],
+["Selon Philippiens 2:3-4, quelle attitude convient à la vie chrétienne ?",["Agir avec humilité et considérer aussi les intérêts des autres.","Chercher à être supérieur.","Défendre ses intérêts sans tenir compte de personne.","Voir l’humilité comme une faiblesse."],0,"Philippiens 2:3-4","Renoncer à l’égoïsme et considérer autrui."],
+["Selon 1 Pierre 2:12, une conduite honorable parmi les non-croyants peut les amener à glorifier Dieu.",TF,0,"1 Pierre 2:12","Un témoignage cohérent peut conduire d’autres à reconnaître l’œuvre de Dieu."]]},
+{n:"II",t:"La transformation",d:"Appliquer la Parole dans les pensées, paroles, relations et choix quotidiens.",q:[
+["Selon Philippiens 4:8, sur quoi le croyant doit-il porter ses pensées ?",["Uniquement sur les difficultés.","Sur ce qui est vrai, honorable, juste, pur, aimable.","Sur les défauts des autres.","Sur ses seules réussites."],1,"Philippiens 4:8","La sanctification touche aussi notre vie intérieure."],
+["Selon Proverbes 15:1, quelle attitude apaise une situation tendue ?",["Répondre plus fort.","Garder rancune.","Donner une réponse douce.","Humilier l’autre."],2,"Proverbes 15:1","Une réponse douce calme la colère."],
+["Éphésiens 4:26 enseigne qu’éprouver de la colère signifie nécessairement avoir déjà péché.",TF,1,"Éphésiens 4:26-27","Le texte demande de ne pas pécher dans la colère et de ne pas lui laisser de place."],
+["Selon Jacques 1:14-15, quel processus conduit au péché ?",["Être entraîné par son propre désir, qui enfante le péché.","Toute tentation est déjà un péché.","Le péché vient seulement des circonstances.","Le péché n’existe que si l’on est découvert."],0,"Jacques 1:14-15","Être tenté n’est pas consentir : il faut arrêter le désir avant l’acte."],
+["Selon Galates 6:2, porter les fardeaux les uns des autres accomplit la loi de Christ.",TF,0,"Galates 6:2","La sanctification se vit aussi dans la solidarité concrète."],
+["Tu as blessé quelqu’un. Que demande Matthieu 5:23-24 ?",["Attendre qu’il vienne.","Ignorer la situation.","Chercher à te réconcilier avec lui.","Parler de lui à d’autres."],2,"Matthieu 5:23-24","Une démarche spirituelle authentique ne doit pas esquiver les torts causés."],
+["Selon Romains 12:20-21, comment répondre au mal ?",["Se venger.","Rendre le mal.","Vaincre le mal par le bien.","Faire comme s’il n’existait pas."],2,"Romains 12:19-21","Refuser que la vengeance dicte notre conduite ; cela n’exclut pas de chercher une protection légitime."],
+["Selon Éphésiens 4:25, le croyant doit renoncer au mensonge.",TF,0,"Éphésiens 4:25","La vérité fonde des relations de confiance, dite avec amour."],
+["Selon Matthieu 6:3-4, l’aumône doit être donnée pour être remarquée et admirée.",TF,1,"Matthieu 6:1-4","Jésus enseigne une générosité sincère, indépendante des éloges."],
+["Selon Matthieu 26:41, que faire face à la tentation ?",["Veiller et prier.","Attendre passivement.","Compter sur sa seule volonté.","Prier sans aucune vigilance."],0,"Matthieu 26:40-41","Vigilance et prière vont ensemble."],
+["Tu ressens de l’envie face à la réussite d’un autre. Selon Jacques 3:14-16, quelle réaction est sage ?",["Continuer à le critiquer.","Le féliciter en nourrissant l’amertume.","Reconnaître ton envie devant Dieu et renoncer à la jalousie.","Juger sa réussite injuste."],2,"Jacques 3:14-16","La jalousie produit du désordre ; la transformation commence par l’honnêteté."],
+["Selon 2 Timothée 2:24-25, comment corriger quelqu’un ?",["Avec brutalité.","Avec douceur et patience, sans être querelleur.","En évitant toute vérité difficile.","En cherchant à gagner la dispute."],1,"2 Timothée 2:24-25","La douceur détermine la manière de corriger."],
+["Selon Matthieu 6:6, que dit Jésus de la prière ?",["Elle doit toujours être publique.","On peut prier dans le secret devant son Père.","Dieu n’écoute que les longues prières.","La prière personnelle est inutile en communauté."],1,"Matthieu 6:5-6","Jésus condamne la recherche de l’approbation humaine."],
+["Selon 1 Pierre 5:7, que faire de nos inquiétudes ?",["Les cacher.","Les confier à Dieu qui prend soin de nous.","Attendre sans rien faire.","Y voir un manque de foi."],1,"1 Pierre 5:6-7","Confier ses soucis exprime la confiance, sans dispenser d’agir avec responsabilité."],
+["Philippiens 4:11-13 enseigne qu’on peut apprendre le contentement grâce à Christ.",TF,0,"Philippiens 4:11-13","Paul parle de contentement dans l’abondance comme dans le manque."],
+["Selon Éphésiens 5:15-16, comment se conduire par rapport au temps ?",["Sans réfléchir.","En imitant la foule.","Avec sagesse, en rachetant le temps.","Uniquement en activités d’Église."],2,"Éphésiens 5:15-17","Saisir les occasions de faire ce qui est juste."],
+["Dans l’épreuve, que dit 1 Thessaloniciens 5:18 ?",["N’exprimer aucune émotion négative.","Rendre grâces en toute circonstance, sans prétendre que la douleur est bonne.","Attendre la fin des difficultés.","Se culpabiliser d’être triste."],1,"1 Thessaloniciens 5:16-18","La reconnaissance peut coexister avec les larmes."],
+["Selon Matthieu 7:3-5, que faire avant de corriger son frère ?",["Examiner sa propre vie et ôter la poutre de son œil.","Comparer les défauts.","Renoncer à toute correction.","Faire rappeler ses défauts par d’autres."],0,"Matthieu 7:3-5","Un examen honnête évite l’hypocrisie."],
+["Jacques 2:1-4 interdit de traiter quelqu’un mieux qu’un autre à cause de sa richesse.",TF,0,"Jacques 2:1-4","La foi est incompatible avec le favoritisme."],
+["Selon Jacques 3:9-10, quel problème pose la langue ?",["Elle ne sert qu’à informer.","Elle peut bénir Dieu et maudire des hommes créés à son image.","Elle est incontrôlable : inutile d’essayer.","Seules les paroles publiques comptent."],1,"Jacques 3:9-10","Notre louange doit être cohérente avec nos paroles."],
+["Selon Colossiens 3:23-24, comment accomplir un travail peu valorisé ?",["Le négliger.","Seulement sous le regard du chef.","De bon cœur, comme pour le Seigneur, avec honnêteté.","Exagérer ses résultats."],2,"Colossiens 3:23-24","Servir avec sincérité, au-delà du désir d’être vu."],
+["Dans Matthieu 18:21-22, combien de fois pardonner ?",["Une seule fois.","Sept fois, puis se venger.","Dix fois au plus.","Sans limite comptable."],3,"Matthieu 18:21-22","Jésus rejette un pardon calculé ; pardonner n’exige pas de rester en danger."],
+["Selon 1 Corinthiens 6:18, que faire face à l’impudicité ?",["Tester sa résistance.","La fuir.","Cela ne concerne que les non-croyants.","C’est sans conséquence si personne ne sait."],1,"1 Corinthiens 6:18-20","On évite de s’en approcher avec présomption."],
+["Selon 1 Corinthiens 15:33, pourquoi choisir sagement ses fréquentations ?",["Tout non-croyant est mauvais.","Les relations n’influencent pas le caractère.","Les mauvaises compagnies corrompent les bonnes mœurs.","Il ne faut parler à personne de différent."],2,"1 Corinthiens 15:33","Nos relations façonnent nos habitudes."],
+["Un frère t’a offensé et le dialogue seul n’a pas suffi. Que dit Matthieu 18:15-16 ?",["Publier sur les réseaux sociaux.","Une démarche progressive, avec un ou deux témoins si besoin.","Inventer des preuves.","Rallier la communauté avant de lui parler."],1,"Matthieu 18:15-16","Les témoins aident à rechercher la résolution, pas à humilier."],
+["Selon Marc 10:42-45, qui est grand parmi les disciples ?",["Celui qui domine.","Celui qui refuse toute responsabilité.","Celui qui se met au service des autres.","Celui qui occupe les fonctions visibles."],2,"Marc 10:42-45","La grandeur se mesure au service."],
+["Selon Proverbes 29:25, quel danger présente la crainte des hommes ?",["Elle rend plus sage.","Elle tend un piège, tandis que la confiance en l’Éternel donne la sécurité.","Elle dispense de décider.","Elle empêche de faire du bien."],1,"Proverbes 29:25","Chercher l’approbation à tout prix détourne de la fidélité."],
+["Sous la pression, que retenir d’Éphésiens 5:15-17 avant une décision ?",["Décider vite.","Suivre la majorité.","Examiner sa conduite et chercher la volonté du Seigneur.","Renoncer à décider."],2,"Éphésiens 5:15-17","Prendre du recul évite l’impulsivité."],
+["Hébreux 10:36 enseigne que la persévérance est nécessaire pour recevoir ce qui est promis.",TF,0,"Hébreux 10:35-36","La sanctification se vit dans la durée."],
+["Entre un avantage malhonnête et une action honnête plus coûteuse, que guide Proverbes 10:9 ?",["Choisir le gain, même en trompant.","Préserver une conduite intègre, même sans bénéfice immédiat.","Faire comme les autres.","L’honnêteté compte seulement si l’on peut être découvert."],1,"Proverbes 10:9","L’intégrité vaut aussi pour les choix cachés."]]},
+{n:"III",t:"La maturité spirituelle",d:"Approfondir le discernement, la consécration, la persévérance et le caractère de Christ.",q:[
+["Selon Jean 15:4-5, quelle est la condition pour porter du fruit ?",["Multiplier les activités.","Demeurer en Christ.","Compter sur sa discipline.","Impressionner les autres."],1,"Jean 15:4-5","Séparés de lui, nous ne pouvons rien faire de durable."],
+["Selon 2 Corinthiens 3:18, comment sommes-nous transformés ?",["Par nos seules forces.","En modifiant l’extérieur.","En contemplant la gloire du Seigneur, par l’Esprit.","En vivant isolés."],2,"2 Corinthiens 3:18","La transformation est progressive et vient de l’Esprit."],
+["Selon Hébreux 5:14, le discernement se développe par l’exercice.",TF,0,"Hébreux 5:13-14","La maturité s’acquiert par la Parole, la pratique et l’exercice du jugement."],
+["Selon Galates 5:17, pourquoi y a-t-il un combat intérieur ?",["L’Esprit est faible.","La chair et l’Esprit ont des désirs opposés.","Les émotions sont mauvaises.","Aucun choix n’est possible."],1,"Galates 5:16-18","Le croyant apprend à marcher par l’Esprit."],
+["Selon 1 Corinthiens 8:1, que fait la connaissance sans l’amour ?",["Elle rend parfait.","Elle enfle, tandis que l’amour édifie.","Elle donne la victoire.","L’amour devient inutile."],1,"1 Corinthiens 8:1","La connaissance biblique doit s’accompagner d’amour."],
+["Selon 1 Jean 4:1, que faire face aux affirmations dites spirituelles ?",["Tout accepter.","Tout rejeter.","Éprouver les esprits pour voir s’ils sont de Dieu.","Suivre la popularité."],2,"1 Jean 4:1-3","La Bible demande du discernement, pas de crédulité."],
+["Selon 2 Corinthiens 10:5, que faire de nos pensées ?",["Les ignorer.","Les valider toutes.","Amener toute pensée captive à l’obéissance de Christ.","Toutes les supprimer."],2,"2 Corinthiens 10:3-5","Il s’agit d’examiner nos raisonnements à la lumière de Christ."],
+["Selon Galates 6:1, comment redresser quelqu’un surpris en faute ?",["Avec douceur, en veillant sur soi-même.","En l’humiliant publiquement.","En se croyant à l’abri.","En ne lui parlant plus jamais."],0,"Galates 6:1","La restauration demande humilité et douceur."],
+["Selon 1 Corinthiens 10:12, celui qui pense être debout doit prendre garde de tomber.",TF,0,"1 Corinthiens 10:12-13","L’assurance spirituelle ne doit pas devenir présomption."],
+["Selon Philippiens 3:12-14, quelle est l’attitude de Paul ?",["Il se dit déjà parfait.","Il abandonne.","Il reconnaît ne pas avoir atteint le but et poursuit sa course.","Il se compare aux autres."],2,"Philippiens 3:12-14","La maturité reste humble et tendue vers Christ."],
+["Selon Hébreux 12:10-11, quel fruit produit la discipline du Seigneur ?",["Une vie sans épreuve.","Pouvoir faire tout ce que l’on désire.","Un fruit paisible de justice.","Une supériorité sur les autres."],2,"Hébreux 12:5-11","Toute souffrance n’est pas une punition ; la discipline vise la croissance."],
+["Selon 1 Thessaloniciens 5:23, quelles dimensions Dieu sanctifie-t-il ?",["Le corps seulement.","L’esprit, l’âme et le corps.","L’intelligence seulement.","Les fonctions dans l’Église."],1,"1 Thessaloniciens 5:23-24","La sanctification touche toute la personne."],
+["Selon 1 Jean 2:6, demeurer en Christ implique de marcher comme lui.",TF,0,"1 Jean 2:6","Cohérence entre la foi professée et la conduite."],
+["Un enseignement spectaculaire contredit clairement la Bible sur Jésus-Christ. Que faire (1 Jean 4:1-3) ?",["L’accepter car les manifestations sont extraordinaires.","Refuser toute réflexion.","L’examiner à la lumière de la vérité biblique.","Suivre la majorité qui applaudit."],2,"1 Jean 4:1-3","Le spectaculaire ne remplace pas le discernement doctrinal."],
+["Selon Hébreux 4:12, quelle est la nature de la Parole de Dieu ?",["Elle ne transmet que de l’histoire.","Vivante, efficace, elle discerne les pensées et intentions du cœur.","Elle ne concerne que l’extérieur.","Elle dispense de tout examen personnel."],1,"Hébreux 4:12-13","Elle expose aussi nos propres motivations."],
+["Dans le Psaume 139:23-24, que demande le psalmiste ?",["Que Dieu sonde son cœur et le conduise sur la voie de l’éternité.","Que Dieu révèle les défauts des autres.","Ne jamais être corrigé.","Que Dieu confirme toutes ses décisions."],0,"Psaume 139:23-24","La maturité accepte d’être examinée par Dieu."],
+["Selon Éphésiens 4:30, on peut attrister le Saint-Esprit.",TF,0,"Éphésiens 4:30-32","Paul le relie à l’amertume, la colère et le refus de pardonner."],
+["Que signifie « N’éteignez pas l’Esprit » (1 Thessaloniciens 5:19) ?",["Commander à l’Esprit.","Ne pas étouffer l’œuvre de l’Esprit, tout en examinant toutes choses.","Toute idée personnelle est une révélation.","L’examen est interdit."],1,"1 Thessaloniciens 5:19-22","Ni rejet systématique, ni acceptation aveugle."],
+["Face à une forte impulsion mauvaise, que dit Romains 8:13 ?",["La nourrir jusqu’à ce qu’elle passe.","Par l’Esprit, faire mourir les actions pécheresses.","Conclure que Dieu t’a abandonné.","Penser que la grâce rend la résistance inutile."],1,"Romains 8:12-14","Une dépendance active envers Dieu."],
+["Dans Galates 5:22-23, que désigne le fruit de l’Esprit ?",["Des capacités extraordinaires visibles.","Des qualités de caractère produites par l’Esprit.","La fin de l’obéissance.","Un privilège des responsables."],1,"Galates 5:22-23","Il ne faut pas le confondre avec les dons spectaculaires."],
+["Quelle image Paul utilise-t-il en 1 Corinthiens 9:25-27 ?",["Un athlète discipliné pour une couronne impérissable.","Un vainqueur sans effort.","Un spectateur.","Un coureur sans but."],0,"1 Corinthiens 9:24-27","La discipline n’achète pas le salut : elle exprime l’engagement."],
+["Selon Tite 2:11-12, que nous enseigne la grâce de Dieu ?",["Continuer dans le péché.","Renoncer à l’impiété et vivre avec sagesse, justice et piété.","La sanctification est réservée à quelques-uns.","Les œuvres achètent le pardon."],1,"Tite 2:11-14","La grâce pardonne et transforme."],
+["Selon Colossiens 3:1-2, vers quoi orienter nos pensées ?",["Les richesses terrestres.","Les choses d’en haut, où Christ est assis à la droite de Dieu.","Refuser toute responsabilité.","Négliger les autres."],1,"Colossiens 3:1-4","On vit ses responsabilités à la lumière du Christ."],
+["Dans une épreuve prolongée, que rappelle Jacques 1:2-4 sans nier la douleur ?",["Toute souffrance prouve une désobéissance.","Il faut prétendre que l’épreuve ne touche pas.","Dieu peut s’en servir pour éprouver la foi et produire la persévérance.","Il est inutile de chercher la sagesse."],2,"Jacques 1:2-5","La souffrance n’est pas bonne en soi, mais Dieu peut y produire de la maturité."],
+["1 Pierre 4:1-2 demande de rechercher volontairement la souffrance.",TF,1,"1 Pierre 4:1-2","Il s’agit d’accepter les conséquences d’une fidélité, pas de les chercher."],
+["Selon 2 Timothée 3:12, que vivent ceux qui veulent vivre pieusement en Christ ?",["Jamais d’opposition.","L’approbation de tous.","Ils peuvent être persécutés pour leur fidélité.","Ils doivent provoquer les conflits."],2,"2 Timothée 3:10-12","Rester ferme, sans chercher la confrontation inutile."],
+["Dans 2 Pierre 1:5-8, comment est décrite la croissance spirituelle ?",["Sans aucun effort.","La foi s’enrichit de vertu, connaissance, maîtrise de soi, persévérance, piété, affection fraternelle, amour.","Une accumulation de connaissances sans changement de vie.","Réservée à ceux qui n’ont jamais échoué."],1,"2 Pierre 1:5-8","La maturité ne se réduit pas à une seule qualité."],
+["Tu te compares à une personne qui progresse plus vite et te décourages. Que retenir de Philippiens 3:12-14 ?",["Abandonner.","Te concentrer sur ta course sans prétendre avoir atteint le but.","Dévaloriser l’autre.","Conclure que c’est impossible pour toi."],1,"Philippiens 3:12-14","Paul met l’accent sur la poursuite du but, pas la comparaison."],
+["Selon 1 Corinthiens 3:12-15, l’œuvre de chacun sera éprouvée, et certaines œuvres peuvent ne pas subsister même si la personne est sauvée.",TF,0,"1 Corinthiens 3:12-15","La qualité de notre service compte devant Dieu."],
+["Dans Apocalypse 2:10, quelle exhortation est adressée à Smyrne ?",["Renoncer à la foi sous la pression.","Se venger.","Être fidèle jusqu’à la mort, avec la couronne de vie promise.","Croire que la fidélité garantit l’absence d’épreuve."],2,"Apocalypse 2:8-11","La fidélité ne dépend pas du confort."]]}
+];
+const MSG=[[50,"Ce parcours est une occasion d’apprendre. Reprends les explications, médite les passages et avance pas à pas avec Dieu."],[80,"Tu progresses ! Continue à approfondir la Parole et à rechercher comment la mettre en pratique."],[101,"Bravo pour ce travail ! Continue à grandir dans la connaissance de la Parole et dans ta marche avec Christ."]];
+let S={view:"home",lv:0,qs:[],i:0,sel:null,done:false,ans:[],score:0,onlyErr:false};
+let P={};try{P=JSON.parse(localStorage.getItem("adj_progress")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("adj_progress",JSON.stringify(P))}catch(e){}};
+const $=id=>document.getElementById(id);
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const total=()=>LV.reduce((s,l)=>s+l.q.length,0);
+const fmt=n=>(Math.round(n*10)/10).toString().replace(".",",");
+function go(v){S.view=v;render();window.scrollTo({top:0,behavior:"smooth"})}
+function start(l){S.lv=l;S.qs=shuffle(LV[l].q).map(x=>({q:x[0],tf:x[1]===TF,o:x[1]===TF?TF:shuffle(x[1]),c:x[1][x[2]],r:x[3],e:x[4]}));S.i=0;S.sel=null;S.done=false;S.ans=[];S.score=0;go("quiz")}
+function pick(k){if(S.done)return;S.sel=k;render()}
+function validate(){if(S.done||S.sel===null)return;const q=S.qs[S.i];S.done=true;const ok=q.o[S.sel]===q.c;if(ok)S.score++;S.ans[S.i]={u:q.o[S.sel],ok};render()}
+function next(){if(S.i<S.qs.length-1){S.i++;S.sel=null;S.done=false;render()}else finish()}
+function finish(){const p=P[S.lv]||{best:0,tries:0};p.tries++;p.best=Math.max(p.best,S.score);p.n=S.qs.length;P[S.lv]=p;save();logDone();S.onlyErr=false;go("results")}
+function share(){const l=LV[S.lv];const t=`J’ai terminé le niveau ${l.n} — ${l.t} du quiz de sanctification de L’amour de JÉSUS : ${S.score}/${S.qs.length}. Et toi, es-tu prêt à relever le défi ?\nRejoins la chaîne : ${CHANNEL_URL}`;
+if(navigator.share){navigator.share({text:t}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>alert("Résultat copié !")).catch(()=>alert(t))}else alert(t)}
+function resetAll(){if(confirm("Effacer toute la progression sur cet appareil ?")){P={};save();render()}}
+function levelCard(l,i){const p=P[i];const n=LV[i].q.length;return `<div class="card fade"><div class="num">${LV[i].n}</div><h3>Niveau ${LV[i].n} — ${LV[i].t}</h3><p>${LV[i].d}</p><p class="ui" style="margin:10px 0"><b>${n} questions</b> · ${p?`meilleur score ${p.best}/${n}`:"pas encore commencé"}</p><div class="bar"><i style="width:${p?p.best/n*100:0}%"></i></div><button class="btn" onclick="start(${i})">${p?"Recommencer":"Commencer"}</button></div>`}
+function render(){
+$("links").innerHTML=[["home","Accueil"],["levels","Niveaux"],["progress","Progression"]].map(([k,t])=>`<button class="${S.view===k?"on":""}" onclick="go('${k}')">${t}</button>`).join("");
+const A=$("app");let h="";
+if(S.view==="home"){h=`<section class="hero fade"><span class="pill">✝️ Louis Segond 1910</span><h1>Grandir dans la sanctification, pas à pas</h1><p>Un parcours interactif de ${total()} questions pour apprendre, comprendre ses erreurs et méditer la Parole de Dieu. Ce quiz est un outil d’apprentissage et de méditation.</p><button class="btn" onclick="begin()">Commencer le parcours</button></section>
+${statsHTML()}<h2 class="sec">Trois niveaux progressifs</h2><div class="grid">${LV.map((l,i)=>`<div class="card"><div class="num">${l.n}</div><h3>${l.t}</h3><p>${l.d}</p></div>`).join("")}</div>
+<h2 class="sec">Comment ça marche ?</h2><div class="grid"><div class="card"><h3>1. Réponds</h3><p>Une question à la fois. Tu peux changer ton choix avant de valider.</p></div><div class="card"><h3>2. Médite</h3><p>Après chaque réponse : la bonne réponse, la référence et une explication.</p></div><div class="card"><h3>3. Progresse</h3><p>Score sur 30, note sur 20 et révision de tes erreurs.</p></div></div>
+<div class="card" style="text-align:center;margin-top:24px"><h3>📢 Rejoins la communauté</h3><p style="margin-bottom:14px">${CHANNEL_NAME}</p><a class="btn vi" href="${CHANNEL_URL}" target="_blank" rel="noopener noreferrer">Ouvrir la chaîne WhatsApp</a></div>
+<p class="note">Le score mesure tes réponses au questionnaire. Il ne mesure ni ta valeur ni ta relation avec Dieu.</p>`}
+else if(S.view==="join"){h=joinHTML()}
+else if(S.view==="levels"){h=`<h2 class="sec">Choisis ton niveau</h2><p class="lead">Tous les niveaux sont accessibles, sans compte.</p><div class="grid">${LV.map(levelCard).join("")}</div>`}
+else if(S.view==="progress"){const dn=Object.keys(P).length;const all=LV.reduce((s,l,i)=>s+(P[i]?P[i].best:0),0);h=`<h2 class="sec">Ma progression</h2><div class="card"><div class="big">${dn}/${LV.length}</div><p class="lead">niveaux terminés · ${all}/${total()} bonnes réponses (meilleurs scores)</p><div class="bar"><i style="width:${all/total()*100}%"></i></div></div><div class="grid">${LV.map(levelCard).join("")}</div><div class="row"><button class="btn alt" onclick="resetAll()">Effacer ma progression</button></div><p class="note">Sauvegarde locale sur cet appareil : elle disparaît si tu effaces les données du navigateur ou changes d’appareil.</p>`}
+else if(S.view==="quiz"){const q=S.qs[S.i];const n=S.qs.length;
+h=`<div class="card fade" style="margin-top:28px"><div class="ui" style="display:flex;justify-content:space-between;color:var(--sub);font-weight:600"><span>Niveau ${LV[S.lv].n} — ${LV[S.lv].t}</span><span>Question ${S.i+1} / ${n}</span></div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${S.i+(S.done?1:0)}"><i style="width:${(S.i+(S.done?1:0))/n*100}%"></i></div>
+<h3 style="font-size:1.25rem;margin-top:14px">${q.q}</h3><div class="opts" role="radiogroup">${q.o.map((o,k)=>{let c="opt";if(S.done){if(o===q.c)c+=" ok";else if(k===S.sel)c+=" ko"}else if(k===S.sel)c+=" sel";return `<button class="${c}" role="radio" aria-checked="${k===S.sel}" ${S.done?"disabled":""} onclick="pick(${k})">${o}</button>`}).join("")}</div>
+${S.done?`<div class="exp" role="status"><b class="ui" style="color:var(--vi)">${S.ans[S.i].ok?"✅ Bonne réponse":"❌ Pas tout à fait"} · 📖 ${q.r}</b><p style="margin-top:6px">${q.e}</p></div>`:""}
+<div class="row"><button class="btn alt" onclick="go('levels')">Quitter</button>${S.done?`<button class="btn" onclick="next()">${S.i<n-1?"Question suivante":"Voir mes résultats"}</button>`:`<button class="btn" onclick="validate()" ${S.sel===null?"disabled":""}>Valider la réponse</button>`}</div></div>`}
+else if(S.view==="results"){const n=S.qs.length,pc=S.score/n*100,m=MSG.find(x=>pc<x[0])[1];const list=S.qs.map((q,i)=>({q,a:S.ans[i]})).filter(x=>!S.onlyErr||!x.a.ok);
+h=`<div class="card fade" style="margin-top:28px"><h2 class="ui" style="text-align:center;color:var(--vi)">Résultats — Niveau ${LV[S.lv].n}</h2><div class="big">${S.score} / ${n}</div>
+<div class="stats"><div class="stat"><b>${fmt(S.score/n*20)}/20</b>Note</div><div class="stat"><b>${Math.round(pc)} %</b>Réussite</div><div class="stat"><b>${S.score} ✓ · ${n-S.score} ✗</b>Bilan</div></div>
+<div class="exp">${m}</div>
+<div class="row"><button class="btn" onclick="start(${S.lv})">Recommencer le niveau</button><button class="btn alt" onclick="S.onlyErr=!S.onlyErr;render()">${S.onlyErr?"Voir toutes les questions":"Revoir mes erreurs"}</button>${S.lv<LV.length-1?`<button class="btn vi" onclick="start(${S.lv+1})">Niveau suivant</button>`:""}<button class="btn alt" onclick="share()">Partager mon résultat</button><button class="btn alt" onclick="go('levels')">Retour aux niveaux</button></div></div>
+<h2 class="sec">${S.onlyErr?"Mes erreurs":"Détail des réponses"}</h2>${list.length?list.map(x=>`<div class="rev ${x.a.ok?"ok":"ko"}"><b class="ui">${x.a.ok?"✅":"❌"} ${x.q.q}</b><p>Ta réponse : ${x.a.u}${x.a.ok?"":` · <b>Bonne réponse : ${x.q.c}</b>`}</p><p style="font-size:.95rem">📖 ${x.q.r} — ${x.q.e}</p></div>`).join(""):`<p class="lead">Aucune erreur, félicitations ! 🎉</p>`}`}
+A.innerHTML=h}
+const sb=(window.supabase&&window.SUPABASE_URL&&!/VOTRE/.test(window.SUPABASE_URL))?window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY):null;
+const GOAL=1000;let ST=null,WALL=[];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const me=()=>{try{return JSON.parse(localStorage.getItem("adj_me")||"null")}catch(e){return null}};
+function begin(){me()?go("levels"):go("join")}
+async function loadLive(){if(!sb)return;try{const a=await sb.rpc("public_stats"),b=await sb.rpc("public_wall");if(a.data)ST=a.data;if(b.data)WALL=b.data;if(S.view==="home")render()}catch(e){}}
+function statsHTML(){if(!sb||!ST)return"";const p=ST.participants,pc=Math.min(100,p/GOAL*100);return `<div class="card fade" style="margin:24px 0"><h3 style="text-align:center">🙏 Ils avancent avec nous</h3><div class="big">${p}</div><p class="lead">participants · objectif ${GOAL}</p><div class="bar"><i style="width:${pc}%"></i></div>${WALL.length?`<h3 style="margin-top:18px">Mur de prière</h3>${WALL.map(w=>`<div class="rev"><b class="ui">${esc(w.name)}</b><p>${esc(w.prayer)}</p></div>`).join("")}`:""}</div>`}
+function joinHTML(){return `<div class="card fade" style="max-width:560px;margin:28px auto"><h2 class="ui" style="color:var(--vi)">Bienvenue 🤎</h2><p style="margin-bottom:14px;color:var(--sub)">Dis-nous qui tu es : nous prierons pour toi.</p>
+<label class="ui">Ton prénom *<input id="j-name" maxlength="60" class="inp" autocomplete="given-name"></label>
+<label class="ui">Sujet de prière (facultatif)<textarea id="j-pr" maxlength="500" rows="3" class="inp"></textarea></label>
+<label class="chk"><input type="checkbox" id="j-pub"> Afficher mon sujet sur le mur de prière public (sans mon nom de famille, à toi de choisir ce que tu écris)</label>
+<label class="chk"><input type="checkbox" id="j-ok"> J’accepte que mon prénom et mon sujet soient enregistrés pour que l’équipe puisse prier. Je peux demander leur suppression via la chaîne WhatsApp. *</label>
+<p id="j-err" class="note" style="color:var(--kot)"></p>
+<div class="row"><button class="btn" onclick="join()">Commencer</button><button class="btn alt" onclick="skip()">Continuer sans m’inscrire</button></div></div>`}
+async function join(){const n=$("j-name").value.trim(),pr=$("j-pr").value.trim();if(!n)return $("j-err").textContent="Merci d’indiquer ton prénom.";if(!$("j-ok").checked)return $("j-err").textContent="Merci de cocher l’accord.";
+if(sb){try{const r=await sb.from("participants").insert({name:n,prayer:pr||null,share_public:!!pr&&$("j-pub").checked,consent:true});if(r.error)throw r.error}catch(e){return $("j-err").textContent="Envoi impossible pour le moment. Réessaie ou continue sans t’inscrire."}}
+try{localStorage.setItem("adj_me",JSON.stringify({name:n}))}catch(e){}go("levels")}
+function skip(){try{localStorage.setItem("adj_me",JSON.stringify({name:""}))}catch(e){}go("levels")}
+async function track(){if(!sb)return;try{if(sessionStorage.getItem("adj_v"))return;sessionStorage.setItem("adj_v","1");await sb.from("visits").insert({page:"home"})}catch(e){}}
+async function logDone(){if(!sb)return;try{await sb.from("completions").insert({level:S.lv+1,score:S.score,total:S.qs.length,name:(me()||{}).name||null})}catch(e){}}
+render();track();loadLive();
+</script>
+</body>
+</html>
