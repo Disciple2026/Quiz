@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Admin — L’amour de JÉSUS</title>
+<style>:root{--bg:#FAF7F2;--c:#FFFDF9;--sa:#F1E8DA;--tx:#2C1810;--br:#6B4226;--vi:#5C234B;--bd:#E4D8C8}
+@media(prefers-color-scheme:dark){:root{--bg:#1B1310;--c:#271C17;--sa:#33251E;--tx:#F5EBE0;--br:#D9A877;--vi:#D9A3C8;--bd:#44332A}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,sans-serif}.w{max-width:1000px;margin:0 auto;padding:20px}
+.c{background:var(--c);border:1px solid var(--bd);border-radius:24px;padding:24px;margin-bottom:18px}h1{color:var(--vi);margin:0 0 12px}
+.i{display:block;width:100%;margin:8px 0;padding:12px;border-radius:12px;border:1.5px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit}
+.b{padding:10px 20px;border:0;border-radius:999px;background:var(--br);color:#fff;font-weight:700;cursor:pointer;margin:4px 4px 4px 0}.b.a{background:none;color:var(--br);border:1.5px solid var(--br)}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.s{background:var(--sa);border-radius:18px;padding:14px;text-align:center}.s b{display:block;font-size:1.8rem;color:var(--vi)}
+.er{color:#c0392b}.t{overflow-x:auto}table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top;font-size:.92rem}</style></head><body><div class="w" id="app"></div>
+<script src="config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);let P=[];
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function login(m){$("app").innerHTML=`<div class="c" style="max-width:420px;margin:60px auto"><h1>🔒 Admin</h1><input id="e" type="email" class="i" placeholder="Email"><input id="p" type="password" class="i" placeholder="Mot de passe"><p class="er">${m||""}</p><button class="b" onclick="doLogin()">Connexion</button></div>`}
+async function doLogin(){const r=await sb.auth.signInWithPassword({email:$("e").value,password:$("p").value});r.error?login("Identifiants incorrects."):dash()}
+async function out(){await sb.auth.signOut();login()}
+async function dash(){const t=new Date();t.setHours(0,0,0,0);
+const [pa,vi,vt,co]=await Promise.all([sb.from("participants").select("*").order("created_at",{ascending:false}),sb.from("visits").select("id",{count:"exact",head:true}),sb.from("visits").select("id",{count:"exact",head:true}).gte("created_at",t.toISOString()),sb.from("completions").select("level,score,total")]);
+if(pa.error)return login("Accès refusé.");P=pa.data;const C=co.data||[];
+const lv=[1,2,3].map(l=>{const x=C.filter(c=>c.level===l),a=x.length?x.reduce((s,c)=>s+c.score/c.total*100,0)/x.length:0;return `<div class="s"><b>${x.length}</b>Niveau ${l} terminé<br>moy. ${Math.round(a)} %</div>`}).join("");
+$("app").innerHTML=`<div class="c"><h1>Tableau de bord</h1><div class="g"><div class="s"><b>${P.length}</b>Participants</div><div class="s"><b>${vi.count??0}</b>Visites (total)</div><div class="s"><b>${vt.count??0}</b>Visites aujourd’hui</div><div class="s"><b>${P.filter(x=>x.prayer).length}</b>Sujets de prière</div>${lv}</div><p><button class="b" onclick="csv()">Exporter CSV</button><button class="b a" onclick="out()">Déconnexion</button></p></div>
+<div class="c t"><h1>🙏 Participants & sujets de prière</h1><table><tr><th>Date</th><th>Nom</th><th>Sujet</th><th>Public</th><th></th></tr>${P.map(x=>`<tr><td>${new Date(x.created_at).toLocaleString("fr-FR")}</td><td>${esc(x.name)}</td><td>${esc(x.prayer)}</td><td>${x.share_public?"oui":"non"}</td><td><button class="b a" onclick="del('${x.id}')">Supprimer</button></td></tr>`).join("")||"<tr><td colspan=5>Aucun participant pour l’instant.</td></tr>"}</table></div>`}
+async function del(id){if(confirm("Supprimer définitivement ?")){await sb.from("participants").delete().eq("id",id);dash()}}
+function csv(){const q=v=>'"'+String(v??"").replace(/^[=+\-@]/,"'$&").replace(/"/g,'""')+'"';const r=[["date","nom","sujet","public"],...P.map(x=>[x.created_at,x.name,x.prayer,x.share_public])].map(a=>a.map(q).join(",")).join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+r],{type:"text/csv"}));a.download="participants.csv";a.click()}
+sb.auth.getSession().then(r=>r.data.session?dash():login());
+</script></body></html>
